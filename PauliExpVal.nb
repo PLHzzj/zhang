@@ -1,0 +1,1101 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     41750,       1093]
+NotebookOptionsPosition[     40446,       1065]
+NotebookOutlinePosition[     40868,       1082]
+CellTagsIndexPosition[     40825,       1079]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["\[AliasDelimiter]"], "Input",
+ CellChangeTimes->{
+  3.8236785404633007`*^9},ExpressionUUID->"3020168a-ec66-4287-9065-\
+3c0399005ec7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.823397433762241*^9, 3.823397473936679*^9}, {
+  3.823417292546079*^9, 3.8234172994696846`*^9}, {3.8235695837966127`*^9, 
+  3.8235695920141344`*^9}},
+ CellLabel->
+  "In[213]:=",ExpressionUUID->"443401b3-04cc-4826-a967-06b86778f85d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Ouput", " ", "setting"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"chi000", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubsuperscriptBox[\\(\[Chi]\\), \\(0\\), \
+\\(00\\)]\\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"chi110", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubsuperscriptBox[\\(\[Chi]\\), \\(0\\), \
+\\(11\\)]\\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"chi101", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubsuperscriptBox[\\(\[Chi]\\), \\(1\\), \
+\\(10\\)]\\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"chi111", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubsuperscriptBox[\\(\[Chi]\\), \\(1\\), \
+\\(11\\)]\\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"chi011", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubsuperscriptBox[\\(\[Chi]\\), \\(1\\), \
+\\(01\\)]\\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"chi112", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubsuperscriptBox[\\(\[Chi]\\), \\(2\\), \
+\\(11\\)]\\)\>\""}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8233832858305483`*^9, 3.8233833490093803`*^9}, {
+   3.8233833971634336`*^9, 3.82338341530273*^9}, {3.8233834560065136`*^9, 
+   3.8233838669503226`*^9}, {3.8233840974452677`*^9, 
+   3.8233841157812567`*^9}, {3.823384466969737*^9, 3.8233845304365816`*^9}, {
+   3.8233845853165755`*^9, 3.8233846230549765`*^9}, 3.823384743567095*^9},
+ CellLabel->
+  "In[214]:=",ExpressionUUID->"1ed60120-3db1-44d2-8154-3bbf43e55cbe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Eigenvectors", " ", "of", " ", "sz"}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"spinup", "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"spindown", "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}], "}"}], "]"}]}], ";"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Spin", " ", "wave", " ", "functions", " ", "of", " ", "two", " ", 
+      "spin"}], "-", 
+     RowBox[{"1", "/", "2"}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"spin11", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"spinup", ",", "spinup"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"spin1m1", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"spindown", ",", "spindown"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"spin10", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spinup", ",", "spindown"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spindown", ",", "spinup"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"spin00", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spinup", ",", "spindown"}], "]"}], "-", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spindown", ",", "spinup"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Spin", " ", "wave", " ", "function", " ", "of", " ", "tetraquark", " ", 
+     "with", " ", "total", " ", "spin", " ", "S", " ", "in", " ", "space", 
+     " ", "V", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}], "\[Cross]", "V"}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}], "\[Cross]", "V"}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}], "\[Cross]", "V"}], 
+     RowBox[{"(", 
+      RowBox[{"1", "/", "2"}], ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"S", "=", "0"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]000", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"spin00", ",", "spin00"}], "]"}]}], ";"}], 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"0", ":", " ", "S12"}], ";", " ", 
+     RowBox[{"0", ":", " ", "S34"}], ";", " ", 
+     RowBox[{"0", ":", " ", "S"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]110", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spin11", ",", "spin1m1"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spin1m1", ",", "spin11"}], "]"}], "-", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"spin10", ",", "spin10"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "3", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"S", "=", "1"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]101", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"spin11", ",", "spin00"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]111", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"KroneckerProduct", "[", 
+        RowBox[{"spin10", ",", "spin11"}], "]"}], "/", 
+       RowBox[{"Sqrt", "[", "2", "]"}]}], "-", 
+      RowBox[{
+       RowBox[{"KroneckerProduct", "[", 
+        RowBox[{"spin11", ",", "spin10"}], "]"}], "/", 
+       RowBox[{"Sqrt", "[", "2", "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]011", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"spin00", ",", "spin11"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"S", "=", "2"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]112", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"spin11", ",", "spin11"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Calculations", " ", "of", " ", 
+     RowBox[{"\[Sigma]i", "\[CenterDot]", "\[Sigma]j"}], " ", "of", " ", 
+     "different", " ", "quark", " ", "pair", " ", 
+     RowBox[{"(", 
+      RowBox[{"Qi", ",", " ", "Qj"}], ")"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "bases", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Chi]", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[Chi]000", ",", "\[Chi]110", ",", "\[Chi]011", ",", "\[Chi]101", ",", 
+       "\[Chi]111", ",", "\[Chi]112"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"output\[Chi]", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "chi000", ",", "chi110", ",", "chi011", ",", "chi101", ",", "chi111", 
+       ",", "chi112"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Pauli", " ", "matrices"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ";", 
+       RowBox[{"\[Sigma]", "=", 
+        RowBox[{"{", "}"}]}]}], ",", 
+      RowBox[{"i", "\[LessEqual]", " ", "3"}], ",", 
+      RowBox[{"i", "++"}], ",", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"\[Sigma]", ",", 
+        RowBox[{
+         RowBox[{"PauliMatrix", "[", "i", "]"}], "/", "2"}]}], "]"}]}], "]"}],
+     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Pauli", " ", "matrices", " ", "of", " ", "ith", " ", "quark", " ", "in", 
+     " ", "space", " ", "V", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}], "\[Cross]", "V"}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}], "\[Cross]", "V"}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}], "\[Cross]", "V"}], 
+     RowBox[{"(", 
+      RowBox[{"1", "/", "2"}], ")"}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"Quark\[Sigma]Mat", "[", 
+     RowBox[{"ith_", ",", "\[Sigma]_", ",", "index_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "PauliMat", "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"PauliMat", "=", 
+        RowBox[{"List", "[", "]"}]}], ";", 
+       RowBox[{"iden", "=", 
+        RowBox[{"IdentityMatrix", "[", "2", "]"}]}], ";", "\n", 
+       RowBox[{"Which", "[", "\n", 
+        RowBox[{
+         RowBox[{"ith", "==", "1"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "\[Sigma]", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"PauliMat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{
+               RowBox[{"\[Sigma]", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", "iden", ",", "iden", ",",
+                "iden"}], "]"}]}], "]"}]}], "]"}], ",", "\n", 
+         RowBox[{"ith", "==", "2"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "\[Sigma]", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"PauliMat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{"iden", ",", 
+               RowBox[{"\[Sigma]", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", "iden", ",", "iden"}], 
+              "]"}]}], "]"}]}], "]"}], ",", "\n", 
+         RowBox[{"ith", "==", "3"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "\[Sigma]", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"PauliMat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{"iden", ",", "iden", ",", 
+               RowBox[{"\[Sigma]", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", "iden"}], "]"}]}], 
+            "]"}]}], "]"}], ",", "\n", 
+         RowBox[{"ith", "==", "4"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "\[Sigma]", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"PauliMat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{"iden", ",", "iden", ",", "iden", ",", 
+               RowBox[{"\[Sigma]", "[", 
+                RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], "]"}]}], "]"}]}], 
+        "\n", "]"}], ";", "\n", 
+       RowBox[{"PauliMat", "[", 
+        RowBox[{"[", "index", "]"}], "]"}]}]}], 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Electing", " ", "ith", " ", "matrix", " ", "of", " ", "Pauli", " ", 
+       "matrices"}], " ", "*)"}], "\n", "]"}]}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Expectation", " ", "values", " ", "of", " ", 
+     RowBox[{
+      RowBox[{"Subscript", "[", 
+       RowBox[{"\[Sigma]", ",", " ", "i"}], "]"}], "\[CenterDot]", 
+      RowBox[{"Subscript", "[", 
+       RowBox[{"\[Sigma]", ",", " ", "j"}], "]"}]}], " ", "of", " ", "ith", 
+     " ", "quark", " ", "and", " ", "jth", " ", "quark", " ", "in", " ", 
+     "different", " ", "basis"}], " ", "*)"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"expval", "[", 
+      RowBox[{"Qi_", ",", "\[Sigma]_", ",", "bapair_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"val", "=", "0"}], "}"}], ",", "\n", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", "=", "1"}], ",", 
+          RowBox[{"j", "<=", " ", "3"}], ",", 
+          RowBox[{"j", "++"}], ",", "\n", 
+          RowBox[{"val", "+=", 
+           RowBox[{
+            RowBox[{"Transpose", "[", 
+             RowBox[{"bapair", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", ".", " ", 
+            RowBox[{"Quark\[Sigma]Mat", "[", 
+             RowBox[{
+              RowBox[{"Qi", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", "\[Sigma]", ",", "j"}], 
+             "]"}], " ", ".", " ", 
+            RowBox[{"Quark\[Sigma]Mat", "[", 
+             RowBox[{
+              RowBox[{"Qi", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", "\[Sigma]", ",", "j"}], 
+             "]"}], " ", ".", " ", 
+            RowBox[{"bapair", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}]}]}], 
+         RowBox[{"(*", " ", 
+          RowBox[{"Return", " ", "a", " ", "matrix"}], " ", "*)"}], "\n", 
+         "]"}], ";", "\n", 
+        RowBox[{"val", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], 
+      RowBox[{"(*", " ", 
+       RowBox[{"Return", " ", "a", " ", "number"}], " ", "*)"}], "\n", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Print", " ", "the", " ", "results", " ", "with", " ", "matrix", " ", 
+     "form"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"OutMat", "[", 
+     RowBox[{"Qi_", ",", "\[Sigma]_", ",", "basis_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"outmat", "=", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Length", "[", "basis", "]"}], ",", 
+             RowBox[{"Length", "[", "basis", "]"}]}], "}"}]}], "]"}]}], ",", 
+        "bapair"}], "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"n", "=", "1"}], ",", 
+         RowBox[{"n", "\[LessEqual]", " ", 
+          RowBox[{"Length", "[", "basis", "]"}]}], ",", 
+         RowBox[{"n", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"o", "=", "1"}], ",", 
+           RowBox[{"o", "\[LessEqual]", " ", 
+            RowBox[{"Length", "[", "basis", "]"}]}], ",", 
+           RowBox[{"o", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"o", "\[LessEqual]", " ", "n"}], ",", 
+             RowBox[{
+              RowBox[{"bapair", "=", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                 "basis", "\[LeftDoubleBracket]", "n", 
+                  "\[RightDoubleBracket]"}], ",", 
+                 RowBox[{
+                 "basis", "\[LeftDoubleBracket]", "o", 
+                  "\[RightDoubleBracket]"}]}], "}"}]}], ";", 
+              RowBox[{
+               RowBox[{"outmat", "\[LeftDoubleBracket]", 
+                RowBox[{"n", ",", "o"}], "\[RightDoubleBracket]"}], "=", 
+               RowBox[{"expval", "[", 
+                RowBox[{"Qi", ",", "\[Sigma]", ",", "bapair"}], "]"}]}]}]}], 
+            "]"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+        "]"}], ";", "\n", 
+       RowBox[{"MatrixForm", "[", "outmat", "]"}]}]}], "\n", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Calculations", 
+     RowBox[{"(", 
+      RowBox[{"expectation", " ", "values", " ", "in", " ", 
+       RowBox[{"{", "...", "}"}]}], ")"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"l", "=", "1"}], ",", 
+     RowBox[{"l", "\[LessEqual]", " ", "4"}], ",", 
+     RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"m", "=", "1"}], ",", 
+       RowBox[{"m", "\[LessEqual]", " ", "4"}], ",", 
+       RowBox[{"m", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"l", "<", "m"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Qpair", "=", 
+           RowBox[{"{", 
+            RowBox[{"l", ",", "m"}], "}"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Print", "[", 
+           RowBox[{
+           "\"\<Expectations of inner product of spin matrix of quark pair \>\
+\"", ",", "Qpair", ",", "\"\<in bases \>\"", ",", " ", 
+            RowBox[{"TraditionalForm", "[", "output\[Chi]", "]"}], ",", 
+            "\"\<\\n\>\"", ",", "\[IndentingNewLine]", 
+            RowBox[{"OutMat", "[", 
+             RowBox[{"Qpair", ",", "\[Sigma]", ",", "\[Chi]"}], "]"}]}], 
+           "]"}]}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+      "]"}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8233812778130383`*^9, 3.823381287541094*^9}, {
+   3.823381401834488*^9, 3.8233814279889174`*^9}, {3.8233814753168707`*^9, 
+   3.8233816198923407`*^9}, {3.823381793268173*^9, 3.823381917366514*^9}, {
+   3.8233822597427893`*^9, 3.8233822908462243`*^9}, {3.8233823247873383`*^9, 
+   3.823382418866997*^9}, {3.8233832741294036`*^9, 3.823383280763892*^9}, 
+   3.8233836543420663`*^9, {3.8233841937971516`*^9, 3.8233843144373455`*^9}, {
+   3.823384802542989*^9, 3.8233848293481865`*^9}, {3.8233849115991845`*^9, 
+   3.8233850157695284`*^9}, {3.823385060334914*^9, 3.8233851763023024`*^9}, {
+   3.823385227320854*^9, 3.8233852757904053`*^9}, {3.823385321262117*^9, 
+   3.8233854003549776`*^9}, 3.823385463650866*^9, {3.823395321521702*^9, 
+   3.8233953262336802`*^9}, {3.8233953613249297`*^9, 3.823395478064129*^9}, {
+   3.8233955823395767`*^9, 3.8233957041593857`*^9}, {3.8233957378105736`*^9, 
+   3.823395786109367*^9}, {3.823395956222882*^9, 3.8233960057514296`*^9}, {
+   3.8233960850358377`*^9, 3.823396085352429*^9}, {3.8233962780416646`*^9, 
+   3.8233963797596793`*^9}, {3.823396427903304*^9, 3.823396466521489*^9}, {
+   3.8233965383672576`*^9, 3.823396544212061*^9}, {3.823396650611478*^9, 
+   3.8233966687570515`*^9}, {3.82339674482773*^9, 3.823396749860798*^9}, {
+   3.823396781711461*^9, 3.823396817886544*^9}, {3.823396989599044*^9, 
+   3.823397003908218*^9}, {3.823397147523141*^9, 3.823397179361928*^9}, {
+   3.823397304119854*^9, 3.8233973074427085`*^9}, {3.8233976128678493`*^9, 
+   3.823397634487709*^9}, {3.8233977587808027`*^9, 3.823398098492383*^9}, {
+   3.8233981364166217`*^9, 3.8233981426453934`*^9}, {3.823398176704593*^9, 
+   3.823398181817208*^9}, {3.823398220727057*^9, 3.823398225518631*^9}, 
+   3.8233984641061883`*^9, 3.823398498384383*^9, {3.823398614304795*^9, 
+   3.8233986190669365`*^9}, {3.823398844642704*^9, 3.823398844827877*^9}, {
+   3.8233994139012313`*^9, 3.823399457722026*^9}, {3.823399907104837*^9, 
+   3.8233999409519405`*^9}, {3.8234002438851233`*^9, 3.823400341984398*^9}, {
+   3.8234004228539248`*^9, 3.8234004318563633`*^9}, {3.823400486576824*^9, 
+   3.8234005043635063`*^9}, {3.823400849379017*^9, 3.8234008652755027`*^9}, {
+   3.8234011034235415`*^9, 3.8234011188365097`*^9}, 3.823401164136573*^9, {
+   3.8234015977531776`*^9, 3.8234017205795593`*^9}, 3.823401860657826*^9, {
+   3.823402043059787*^9, 3.8234020778098383`*^9}, {3.823402327369327*^9, 
+   3.8234023815017915`*^9}, {3.823402752594817*^9, 3.8234028411154323`*^9}, {
+   3.8234028921837606`*^9, 3.823402908162418*^9}, {3.8234032303144636`*^9, 
+   3.8234032888531165`*^9}, {3.823416456367981*^9, 3.823416456477356*^9}, {
+   3.8234165761375327`*^9, 3.8234165845895157`*^9}, {3.823466552517273*^9, 
+   3.8234665726332903`*^9}, {3.823569617096404*^9, 3.8235696172435665`*^9}, {
+   3.823569654961512*^9, 3.823569657982855*^9}, {3.8235697068983335`*^9, 
+   3.823569707090308*^9}},
+ CellLabel->
+  "In[220]:=",ExpressionUUID->"ac9d2c8b-8be4-4d3f-99a2-94ae8e7a662d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of inner product of spin matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], "\[InvisibleSpace]", "\<\"in bases \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox["\[Chi]", "0", "00"], ",", 
+       SubsuperscriptBox["\[Chi]", "0", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "01"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "10"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "2", "11"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["3", "4"]}], "}"}], "0", "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["3", "4"]}], "}"}], "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of inner product of spin matrix of quark pair ", {1, 2}, 
+   "in bases ", 
+   TraditionalForm[{$CellContext`chi000, $CellContext`chi110, \
+$CellContext`chi011, $CellContext`chi101, $CellContext`chi111, \
+$CellContext`chi112}], "\n", 
+   MatrixForm[{{{
+       Rational[-3, 4]}, 0, 0, 0, 0, 0}, {{0}, {
+       Rational[1, 4]}, 0, 0, 0, 0}, {{0}, {0}, {
+       Rational[-3, 4]}, 0, 0, 0}, {{0}, {0}, {0}, {
+       Rational[1, 4]}, 0, 0}, {{0}, {0}, {0}, {0}, {
+       Rational[1, 4]}, 0}, {{0}, {0}, {0}, {0}, {0}, {
+       Rational[1, 4]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8235696755115795`*^9, 3.823569710530842*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[220]:=",ExpressionUUID->"6933c95a-9269-46cc-\
+a0cb-479ee997689e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of inner product of spin matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], "\[InvisibleSpace]", "\<\"in bases \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox["\[Chi]", "0", "00"], ",", 
+       SubsuperscriptBox["\[Chi]", "0", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "01"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "10"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "2", "11"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", "0", "}"}], "0", "0", "0", "0", "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox[
+           SqrtBox["3"], "4"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "2"]}], "}"}], "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", 
+          RowBox[{"2", " ", 
+           SqrtBox["2"]}]], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", 
+           RowBox[{"2", " ", 
+            SqrtBox["2"]}]]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], "}"}], "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of inner product of spin matrix of quark pair ", {1, 3}, 
+   "in bases ", 
+   TraditionalForm[{$CellContext`chi000, $CellContext`chi110, \
+$CellContext`chi011, $CellContext`chi101, $CellContext`chi111, \
+$CellContext`chi112}], "\n", 
+   MatrixForm[{{{0}, 0, 0, 0, 0, 0}, {{Rational[-1, 4] 3^Rational[1, 2]}, {
+       Rational[-1, 2]}, 0, 0, 0, 0}, {{0}, {0}, {0}, 0, 0, 0}, {{0}, {0}, {
+       Rational[1, 4]}, {0}, 0, 0}, {{0}, {0}, {
+      Rational[1, 2] 2^Rational[-1, 2]}, {Rational[-1, 2] 2^Rational[-1, 2]}, {
+       Rational[-1, 4]}, 0}, {{0}, {0}, {0}, {0}, {0}, {
+       Rational[1, 4]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8235696755115795`*^9, 3.8235697105467634`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[220]:=",ExpressionUUID->"93304c75-dda9-458d-\
+ba14-5682a8303b8e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of inner product of spin matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], "\[InvisibleSpace]", "\<\"in bases \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox["\[Chi]", "0", "00"], ",", 
+       SubsuperscriptBox["\[Chi]", "0", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "01"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "10"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "2", "11"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", "0", "}"}], "0", "0", "0", "0", "0"},
+       {
+        RowBox[{"{", 
+         FractionBox[
+          SqrtBox["3"], "4"], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "2"]}], "}"}], "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", 
+          RowBox[{"2", " ", 
+           SqrtBox["2"]}]], "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", 
+          RowBox[{"2", " ", 
+           SqrtBox["2"]}]], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], "}"}], "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of inner product of spin matrix of quark pair ", {1, 4}, 
+   "in bases ", 
+   TraditionalForm[{$CellContext`chi000, $CellContext`chi110, \
+$CellContext`chi011, $CellContext`chi101, $CellContext`chi111, \
+$CellContext`chi112}], "\n", 
+   MatrixForm[{{{0}, 0, 0, 0, 0, 0}, {{Rational[1, 4] 3^Rational[1, 2]}, {
+       Rational[-1, 2]}, 0, 0, 0, 0}, {{0}, {0}, {0}, 0, 0, 0}, {{0}, {0}, {
+       Rational[-1, 4]}, {0}, 0, 0}, {{0}, {0}, {
+      Rational[1, 2] 2^Rational[-1, 2]}, {Rational[1, 2] 2^Rational[-1, 2]}, {
+       Rational[-1, 4]}, 0}, {{0}, {0}, {0}, {0}, {0}, {
+       Rational[1, 4]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8235696755115795`*^9, 3.823569710555996*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[220]:=",ExpressionUUID->"cc5299c4-c499-4d9d-\
+b387-3b19cf8cf78f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of inner product of spin matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], "\[InvisibleSpace]", "\<\"in bases \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox["\[Chi]", "0", "00"], ",", 
+       SubsuperscriptBox["\[Chi]", "0", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "01"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "10"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "2", "11"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", "0", "}"}], "0", "0", "0", "0", "0"},
+       {
+        RowBox[{"{", 
+         FractionBox[
+          SqrtBox["3"], "4"], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "2"]}], "}"}], "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", 
+           RowBox[{"2", " ", 
+            SqrtBox["2"]}]]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", 
+           RowBox[{"2", " ", 
+            SqrtBox["2"]}]]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], "}"}], "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of inner product of spin matrix of quark pair ", {2, 3}, 
+   "in bases ", 
+   TraditionalForm[{$CellContext`chi000, $CellContext`chi110, \
+$CellContext`chi011, $CellContext`chi101, $CellContext`chi111, \
+$CellContext`chi112}], "\n", 
+   MatrixForm[{{{0}, 0, 0, 0, 0, 0}, {{Rational[1, 4] 3^Rational[1, 2]}, {
+       Rational[-1, 2]}, 0, 0, 0, 0}, {{0}, {0}, {0}, 0, 0, 0}, {{0}, {0}, {
+       Rational[-1, 4]}, {0}, 0, 0}, {{0}, {0}, {
+      Rational[-1, 2] 2^Rational[-1, 2]}, {
+      Rational[-1, 2] 2^Rational[-1, 2]}, {
+       Rational[-1, 4]}, 0}, {{0}, {0}, {0}, {0}, {0}, {
+       Rational[1, 4]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8235696755115795`*^9, 3.823569710631539*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[220]:=",ExpressionUUID->"1733b886-872f-4c03-\
+b292-72b3c05de7f8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of inner product of spin matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4"}], "}"}], "\[InvisibleSpace]", "\<\"in bases \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox["\[Chi]", "0", "00"], ",", 
+       SubsuperscriptBox["\[Chi]", "0", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "01"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "10"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "2", "11"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", "0", "}"}], "0", "0", "0", "0", "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox[
+           SqrtBox["3"], "4"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "2"]}], "}"}], "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], 
+        RowBox[{"{", "0", "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", 
+           RowBox[{"2", " ", 
+            SqrtBox["2"]}]]}], "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", 
+          RowBox[{"2", " ", 
+           SqrtBox["2"]}]], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["1", "4"]}], "}"}], "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of inner product of spin matrix of quark pair ", {2, 4}, 
+   "in bases ", 
+   TraditionalForm[{$CellContext`chi000, $CellContext`chi110, \
+$CellContext`chi011, $CellContext`chi101, $CellContext`chi111, \
+$CellContext`chi112}], "\n", 
+   MatrixForm[{{{0}, 0, 0, 0, 0, 0}, {{Rational[-1, 4] 3^Rational[1, 2]}, {
+       Rational[-1, 2]}, 0, 0, 0, 0}, {{0}, {0}, {0}, 0, 0, 0}, {{0}, {0}, {
+       Rational[1, 4]}, {0}, 0, 0}, {{0}, {0}, {
+      Rational[-1, 2] 2^Rational[-1, 2]}, {Rational[1, 2] 2^Rational[-1, 2]}, {
+       Rational[-1, 4]}, 0}, {{0}, {0}, {0}, {0}, {0}, {
+       Rational[1, 4]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8235696755115795`*^9, 3.823569710631539*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[220]:=",ExpressionUUID->"d7a193d2-331a-4975-\
+9589-1cb92c8ff25a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of inner product of spin matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], "\[InvisibleSpace]", "\<\"in bases \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox["\[Chi]", "0", "00"], ",", 
+       SubsuperscriptBox["\[Chi]", "0", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "01"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "10"], ",", 
+       SubsuperscriptBox["\[Chi]", "1", "11"], ",", 
+       SubsuperscriptBox["\[Chi]", "2", "11"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["3", "4"]}], "}"}], "0", "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], "0", "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], "0", "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["3", "4"]}], "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}], "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         FractionBox["1", "4"], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of inner product of spin matrix of quark pair ", {3, 4}, 
+   "in bases ", 
+   TraditionalForm[{$CellContext`chi000, $CellContext`chi110, \
+$CellContext`chi011, $CellContext`chi101, $CellContext`chi111, \
+$CellContext`chi112}], "\n", 
+   MatrixForm[{{{
+       Rational[-3, 4]}, 0, 0, 0, 0, 0}, {{0}, {
+       Rational[1, 4]}, 0, 0, 0, 0}, {{0}, {0}, {
+       Rational[1, 4]}, 0, 0, 0}, {{0}, {0}, {0}, {
+       Rational[-3, 4]}, 0, 0}, {{0}, {0}, {0}, {0}, {
+       Rational[1, 4]}, 0}, {{0}, {0}, {0}, {0}, {0}, {
+       Rational[1, 4]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8235696755115795`*^9, 3.8235697106516843`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[220]:=",ExpressionUUID->"4879d0cd-81f5-4b30-\
+88a5-6385ce154339"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1141.2, 587.4},
+WindowMargins->{{-129.6, Automatic}, {Automatic, 150}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:67087\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"19dbcbb5-0d10-4232-addc-9677dca810ac"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 147, 3, 28, "Input",ExpressionUUID->"3020168a-ec66-4287-9065-3c0399005ec7"],
+Cell[708, 25, 347, 7, 28, "Input",ExpressionUUID->"443401b3-04cc-4826-a967-06b86778f85d"],
+Cell[1058, 34, 1967, 47, 146, "Input",ExpressionUUID->"1ed60120-3db1-44d2-8154-3bbf43e55cbe"],
+Cell[CellGroupData[{
+Cell[3050, 85, 17925, 423, 1394, "Input",ExpressionUUID->"ac9d2c8b-8be4-4d3f-99a2-94ae8e7a662d"],
+Cell[CellGroupData[{
+Cell[21000, 512, 3055, 85, 198, "Print",ExpressionUUID->"6933c95a-9269-46cc-a0cb-479ee997689e"],
+Cell[24058, 599, 3323, 92, 177, "Print",ExpressionUUID->"93304c75-dda9-458d-ba14-5682a8303b8e"],
+Cell[27384, 693, 3291, 91, 177, "Print",ExpressionUUID->"cc5299c4-c499-4d9d-b387-3b19cf8cf78f"],
+Cell[30678, 786, 3356, 94, 177, "Print",ExpressionUUID->"1733b886-872f-4c03-b292-72b3c05de7f8"],
+Cell[34037, 882, 3321, 92, 177, "Print",ExpressionUUID->"d7a193d2-331a-4975-9589-1cb92c8ff25a"],
+Cell[37361, 976, 3057, 85, 198, "Print",ExpressionUUID->"4879d0cd-81f5-4b30-88a5-6385ce154339"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

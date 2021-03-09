@@ -1,0 +1,1111 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     41178,       1103]
+NotebookOptionsPosition[     39446,       1069]
+NotebookOutlinePosition[     40003,       1089]
+CellTagsIndexPosition[     39960,       1086]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.823461280543974*^9, 3.8234612862886105`*^9}, {
+  3.823553151568071*^9, 3.823553167165653*^9}},
+ CellLabel->
+  "In[102]:=",ExpressionUUID->"494ff57c-7180-4539-b674-2b064abf0e80"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Output", " ", "setting"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"zeta1", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubscriptBox[\\(\[Zeta]\\),\\(1\\)]\\)\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"zeta2", ",", "TraditionalForm"}], "]"}], ":=", 
+     "\"\<\\!\\(\\*SubscriptBox[\\(\[Zeta]\\),\\(2\\)]\\)\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"zeta3", "/:", 
+     RowBox[{"MakeBoxes", "[", 
+      RowBox[{"zeta3", ",", "TraditionalForm"}], "]"}], ":=", 
+     RowBox[{"SubscriptBox", "[", 
+      RowBox[{"\"\<\[Zeta]\>\"", ",", "\"\<3\>\""}], "]"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8234698895754004`*^9, 3.8234700379526663`*^9}, {
+  3.823553337605226*^9, 3.823553339851692*^9}, {3.823553370743929*^9, 
+  3.823553405170551*^9}},
+ CellLabel->
+  "In[103]:=",ExpressionUUID->"bea5366c-8f81-45d4-a374-935e4d841974"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"GellMann", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[Lambda]", "}"}], ",", "\n", 
+     RowBox[{
+      RowBox[{"Which", "[", "\n", 
+       RowBox[{
+        RowBox[{"n", "==", "1"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "2"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"-", "I"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"I", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "3"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "4"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "5"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", 
+             RowBox[{"-", "I"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"I", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "6"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "7"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", 
+             RowBox[{"-", "I"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "I", ",", "0"}], "}"}]}], "}"}]}], ",", "\n", 
+        RowBox[{"n", "==", "8"}], ",", 
+        RowBox[{"\[Lambda]", "=", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", 
+              RowBox[{"-", "2"}]}], "}"}]}], "}"}], "/", 
+          RowBox[{"Sqrt", "[", "3", "]"}]}]}]}], "]"}], ";", "\[Lambda]"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"nth", "=", "1"}], ";", 
+     RowBox[{"\[Lambda]", "=", 
+      RowBox[{"{", "}"}]}]}], ",", 
+    RowBox[{"nth", "\[LessEqual]", " ", "8"}], ",", 
+    RowBox[{"nth", "++"}], ",", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"\[Lambda]", ",", 
+      RowBox[{"GellMann", "[", "nth", "]"}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.82346089100825*^9, 3.8234609097625484`*^9}, {
+  3.8234617334983053`*^9, 3.8234618339437695`*^9}, {3.8234836055738964`*^9, 
+  3.823483615114439*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"e162df89-96c2-40d3-95c2-2cfa3735e327"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Color", " ", "space", " ", "bases"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"r", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "1", "}"}], ",", 
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "0", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"b", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "1", "}"}], ",", 
+       RowBox[{"{", "0", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "1", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Gell", " ", "Mann", " ", "matrices", " ", "of", " ", "i"}], "-", 
+     RowBox[{"th", " ", "quark", 
+      RowBox[{"(", 
+       RowBox[{"or", " ", "anti", " ", "quark"}], ")"}], " ", "in", " ", 
+      "color", " ", "space", " ", 
+      RowBox[{
+      "Vq", "\[Cross]", "Vq", "\[Cross]", "Vqbar", "\[Cross]", "Vqbar"}]}]}], 
+    " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Quark\[Lambda]Mat", "[", 
+     RowBox[{"ith_", ",", "\[Lambda]", ",", "index_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Lambda]Mat", "=", 
+        RowBox[{"{", "}"}]}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"iden", "=", 
+        RowBox[{"IdentityMatrix", "[", "3", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"ith", "\[Equal]", " ", "1"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"n", "=", "1"}], ",", 
+           RowBox[{"n", "\[LessEqual]", " ", 
+            RowBox[{"Length", "[", "\[Lambda]", "]"}]}], ",", 
+           RowBox[{"n", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"\[Lambda]Mat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{
+               RowBox[{
+               "\[Lambda]", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}], ",", "iden", ",", "iden", ",", 
+               "iden"}], "]"}]}], "]"}]}], " ", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"ith", "\[Equal]", "2"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"n", "=", "1"}], ",", 
+           RowBox[{"n", "\[LessEqual]", " ", 
+            RowBox[{"Length", "[", "\[Lambda]", "]"}]}], ",", 
+           RowBox[{"n", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"\[Lambda]Mat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{"iden", ",", 
+               RowBox[{
+               "\[Lambda]", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}], ",", "iden", ",", "iden"}], 
+              "]"}]}], "]"}]}], " ", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ith", "\[Equal]", " ", "3"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"n", "=", "1"}], ",", 
+           RowBox[{"n", "\[LessEqual]", " ", 
+            RowBox[{"Length", "[", "\[Lambda]", "]"}]}], ",", 
+           RowBox[{"n", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"\[Lambda]Mat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{"iden", ",", "iden", ",", 
+               RowBox[{"-", 
+                RowBox[{"Conjugate", "[", 
+                 RowBox[{
+                 "\[Lambda]", "\[LeftDoubleBracket]", "n", 
+                  "\[RightDoubleBracket]"}], "]"}]}], ",", "iden"}], "]"}]}], 
+            "]"}]}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ith", "\[Equal]", "4"}], ",", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"n", "=", "1"}], ",", 
+           RowBox[{"n", "\[LessEqual]", " ", 
+            RowBox[{"Length", "[", "\[Lambda]", "]"}]}], ",", 
+           RowBox[{"n", "++"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"\[Lambda]Mat", ",", 
+             RowBox[{"KroneckerProduct", "[", 
+              RowBox[{"iden", ",", "iden", ",", "iden", ",", 
+               RowBox[{"-", 
+                RowBox[{"Conjugate", "[", 
+                 RowBox[{
+                 "\[Lambda]", "\[LeftDoubleBracket]", "n", 
+                  "\[RightDoubleBracket]"}], "]"}]}]}], "]"}]}], "]"}]}], 
+          "]"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+       "\[Lambda]Mat", "\[LeftDoubleBracket]", "index", 
+        "\[RightDoubleBracket]"}]}]}], " ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{"Return", " ", "i"}], "-", 
+       RowBox[{"th", " ", "Gell", " ", "Mann", " ", "matrix"}]}], " ", "*)"}],
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "Calculations", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"expval\[Lambda]", "[", 
+      RowBox[{"Qi_", ",", "\[Lambda]_", ",", "colpair_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"val", "=", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "\[Lambda]", "]"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"val", "+=", 
+           RowBox[{
+            RowBox[{"Transpose", "[", 
+             RowBox[{
+             "colpair", "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "]"}], ".", 
+            RowBox[{"Quark\[Lambda]Mat", "[", 
+             RowBox[{
+              RowBox[{
+              "Qi", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              ",", "\[Lambda]", ",", "i"}], "]"}], ".", 
+            RowBox[{"Quark\[Lambda]Mat", "[", 
+             RowBox[{
+              RowBox[{
+              "Qi", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+              ",", "\[Lambda]", ",", "i"}], "]"}], ".", 
+            RowBox[{
+            "colpair", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}]}]}], "\[IndentingNewLine]", "]"}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{
+        "val", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Nicer", " ", "results", " ", "printed"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OutMat", "[", 
+      RowBox[{"Qi_", ",", "\[Lambda]_", ",", "basis_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"outmat", "=", 
+          RowBox[{"ConstantArray", "[", 
+           RowBox[{"0", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Length", "[", "basis", "]"}], ",", 
+              RowBox[{"Length", "[", "basis", "]"}]}], "}"}]}], "]"}]}], ",", 
+         "colpair"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"b1", "=", "1"}], ",", 
+          RowBox[{"b1", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "basis", "]"}]}], ",", 
+          RowBox[{"b1", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"b2", "=", "1"}], ",", 
+            RowBox[{"b2", "\[LessEqual]", " ", 
+             RowBox[{"Length", "[", "basis", "]"}]}], ",", 
+            RowBox[{"b2", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"b2", "\[LessEqual]", " ", "b1"}], ",", 
+              RowBox[{
+               RowBox[{"colpair", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                  "basis", "\[LeftDoubleBracket]", "b1", 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{
+                  "basis", "\[LeftDoubleBracket]", "b2", 
+                   "\[RightDoubleBracket]"}]}], "}"}]}], ";", 
+               RowBox[{
+                RowBox[{"outmat", "\[LeftDoubleBracket]", 
+                 RowBox[{"b1", ",", "b2"}], "\[RightDoubleBracket]"}], "=", 
+                RowBox[{"expval\[Lambda]", "[", 
+                 RowBox[{"Qi", ",", "\[Lambda]", ",", "colpair"}], 
+                 "]"}]}]}]}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"MatrixForm", "[", "outmat", "]"}]}]}], "\[IndentingNewLine]",
+       "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.823422672332017*^9, 3.8234227951940203`*^9}, {
+   3.8234231922261715`*^9, 3.823423534393488*^9}, 3.8234609831049366`*^9, {
+   3.823461024206004*^9, 3.823461025739279*^9}, {3.8234610775145235`*^9, 
+   3.823461121800297*^9}, {3.823461433362727*^9, 3.823461468273061*^9}, {
+   3.823461541492403*^9, 3.823461564219002*^9}, 3.8234634765951505`*^9, {
+   3.8234635122352924`*^9, 3.8234636047148633`*^9}, {3.823463749371954*^9, 
+   3.8234638642750516`*^9}, {3.8234640585102444`*^9, 3.823464059581607*^9}, {
+   3.8234641823165693`*^9, 3.8234642829535985`*^9}, {3.8234644661505175`*^9, 
+   3.82346460901797*^9}, {3.8234673675073442`*^9, 3.8234673677237153`*^9}, {
+   3.8234692531398*^9, 3.8234692688811216`*^9}, {3.823469311958891*^9, 
+   3.8234693374557467`*^9}, {3.8234696368161335`*^9, 3.82346963953936*^9}, {
+   3.8234834373689637`*^9, 3.82348344018952*^9}, {3.823483623604216*^9, 
+   3.823483644399578*^9}, {3.8234838211057625`*^9, 3.823483883726925*^9}, {
+   3.8235534611827183`*^9, 3.823553476327434*^9}, 3.823553552534782*^9},
+ CellLabel->
+  "In[108]:=",ExpressionUUID->"a63d55cc-43a1-4df8-be50-161847b212da"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Color", " ", "triplet", " ", "for", " ", "qq", " ", "or", " ", 
+    "qbarqbar"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"tri1", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"r", ",", "b"}], "]"}], "-", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"b", ",", "r"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tri2", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"b", ",", "g"}], "]"}], "-", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"g", ",", "b"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tri3", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"g", ",", "r"}], "]"}], "-", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"r", ",", "g"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Color", " ", "sextet"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sex1", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"r", ",", "r"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sex2", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"b", ",", "b"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sex3", "=", 
+     RowBox[{"KroneckerProduct", "[", 
+      RowBox[{"g", ",", "g"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sex4", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"r", ",", "b"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"b", ",", "r"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sex5", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"b", ",", "g"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"g", ",", "b"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sex6", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"g", ",", "r"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"r", ",", "g"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Color", " ", "singlet"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"slt", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"r", ",", "r"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"b", ",", "b"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"g", ",", "g"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "3", "]"}]}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8234648692339845`*^9, 3.8234649724323072`*^9}, {
+  3.82346503199218*^9, 3.8234652038106813`*^9}, {3.8234655139226866`*^9, 
+  3.823465546109456*^9}, {3.8234836665980635`*^9, 3.8234836887521343`*^9}, {
+  3.823553185954354*^9, 3.8235532696755075`*^9}},
+ CellLabel->
+  "In[114]:=",ExpressionUUID->"d6f17571-36c4-4fec-87d8-e1abce144bb3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Color", " ", "singlet", " ", "function", " ", "of", " ", "tetraquark", 
+    " ", "in", " ", "66", "bar", " ", "representation"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Zeta]1", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"sex4", ",", "sex4"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"sex5", ",", "sex5"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"sex6", ",", "sex6"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"sex1", ",", "sex1"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"sex2", ",", "sex2"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"sex3", ",", "sex3"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "6", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Color", " ", "singlet", " ", "function", " ", "of", " ", "tetraquark", 
+     " ", "in", " ", "3", "bar3", " ", "representation"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Zeta]2", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"tri1", ",", "tri1"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"tri2", ",", "tri2"}], "]"}], "+", 
+        RowBox[{"KroneckerProduct", "[", 
+         RowBox[{"tri3", ",", "tri3"}], "]"}]}], ")"}], "/", 
+      RowBox[{"Sqrt", "[", "3", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Color", " ", "singlet", " ", "of", " ", "11"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Zeta]3", "=", 
+     RowBox[{
+      RowBox[{"\[Zeta]1", " ", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"2", "/", "3"}], "]"}]}], "+", 
+      RowBox[{"\[Zeta]2", " ", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"1", "/", "3"}], "]"}]}]}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.82346586315878*^9, 3.823465878323244*^9}, {
+   3.8234659784890146`*^9, 3.823466086938344*^9}, {3.823466209251359*^9, 
+   3.82346623908735*^9}, {3.8234836921022224`*^9, 3.8234837445392137`*^9}, {
+   3.823553273890103*^9, 3.823553303425275*^9}, 3.823554540891756*^9, {
+   3.823554622585854*^9, 3.8235546617248464`*^9}},
+ CellLabel->
+  "In[124]:=",ExpressionUUID->"9a3fdd95-e3d0-4eed-8bef-4e4e078745ae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Calculations", 
+    RowBox[{"(", 
+     RowBox[{"results", " ", "in", " ", 
+      RowBox[{"{", "...", "}"}]}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Zeta]", "=", 
+     RowBox[{"{", 
+      RowBox[{"\[Zeta]1", ",", "\[Zeta]2", ",", " ", "\[Zeta]3"}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"zeta", "=", 
+     RowBox[{"{", 
+      RowBox[{"zeta1", ",", "zeta2", ",", "zeta3"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"q1", "=", "1"}], ",", 
+     RowBox[{"q1", "\[LessEqual]", " ", "4"}], ",", 
+     RowBox[{"q1", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"q2", "=", "2"}], ",", 
+       RowBox[{"q2", "\[LessEqual]", " ", "4"}], ",", 
+       RowBox[{"q2", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"q1", "<", "q2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Qpair", "=", 
+           RowBox[{"{", 
+            RowBox[{"q1", ",", "q2"}], "}"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Print", "[", 
+           RowBox[{
+           "\"\<Expectations of product of Gell Mann matrix of quark pair \
+\>\"", ",", "Qpair", ",", "\"\< in bases \>\"", ",", 
+            RowBox[{"TraditionalForm", "[", "zeta", "]"}], ",", "\"\<\\n\>\"",
+             ",", 
+            RowBox[{"OutMat", "[", 
+             RowBox[{"Qpair", ",", "\[Lambda]", ",", "\[Zeta]"}], "]"}]}], 
+           "]"}]}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+      "]"}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.823466254370292*^9, 3.823466263685067*^9}, {
+  3.8234663647733693`*^9, 3.8234664745806465`*^9}, {3.823466610996914*^9, 
+  3.8234669738799257`*^9}, {3.823467308866864*^9, 3.823467349919444*^9}, {
+  3.823470063582348*^9, 3.8234701006933117`*^9}, {3.8234701647156534`*^9, 
+  3.823470177397272*^9}, {3.823470227986027*^9, 3.8234702366257763`*^9}, {
+  3.823483802064381*^9, 3.8234838045851383`*^9}, {3.8235533186989794`*^9, 
+  3.823553332371688*^9}},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"7043b9fe-e132-4ecb-9f84-7517d7171b1e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of product of Gell Mann matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], "\[InvisibleSpace]", "\<\" in bases \"\>",
+    "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["\[Zeta]", "1"], ",", 
+       SubscriptBox["\[Zeta]", "2"], ",", 
+       SubscriptBox["\[Zeta]", "3"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         FractionBox["4", "3"], "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["8", "3"]}], "}"}], "0"},
+       {
+        RowBox[{"{", 
+         FractionBox[
+          RowBox[{"4", " ", 
+           SqrtBox[
+            FractionBox["2", "3"]]}], "3"], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["8", 
+           RowBox[{"3", " ", 
+            SqrtBox["3"]}]]}], "}"}], 
+        RowBox[{"{", "0", "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of product of Gell Mann matrix of quark pair ", {1, 2}, 
+   " in bases ", 
+   TraditionalForm[{$CellContext`zeta1, $CellContext`zeta2, \
+$CellContext`zeta3}], "\n", 
+   MatrixForm[{{{
+       Rational[4, 3]}, 0, 0}, {{0}, {
+       Rational[-8, 3]}, 0}, {{
+      Rational[4, 3] Rational[2, 3]^Rational[1, 2]}, {
+      Rational[-8, 3] 3^Rational[-1, 2]}, {0}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8234702078741226`*^9, 3.8234702539192796`*^9, 
+  3.823483392183919*^9, 3.823483893998744*^9, 3.82355321268167*^9, 
+  3.8235534807537713`*^9, 3.8235535572094603`*^9, 3.8235546663664193`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[127]:=",ExpressionUUID->"5b52bea1-e4db-444a-\
+b199-edc7984b196e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of product of Gell Mann matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], "\[InvisibleSpace]", "\<\" in bases \"\>",
+    "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["\[Zeta]", "1"], ",", 
+       SubscriptBox["\[Zeta]", "2"], ",", 
+       SubscriptBox["\[Zeta]", "3"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["10", "3"]}], "}"}], "0", "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "2"}], " ", 
+          SqrtBox["2"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["4", "3"]}], "}"}], "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"16", " ", 
+            SqrtBox[
+             FractionBox["2", "3"]]}], "3"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["16", 
+           RowBox[{"3", " ", 
+            SqrtBox["3"]}]]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["16", "3"]}], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of product of Gell Mann matrix of quark pair ", {1, 3}, 
+   " in bases ", 
+   TraditionalForm[{$CellContext`zeta1, $CellContext`zeta2, \
+$CellContext`zeta3}], "\n", 
+   MatrixForm[{{{
+       Rational[-10, 3]}, 0, 0}, {{(-2) 2^Rational[1, 2]}, {
+       Rational[-4, 3]}, 0}, {{
+      Rational[-16, 3] Rational[2, 3]^Rational[1, 2]}, {
+      Rational[-16, 3] 3^Rational[-1, 2]}, {
+       Rational[-16, 3]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8234702078741226`*^9, 3.8234702539192796`*^9, 
+  3.823483392183919*^9, 3.823483893998744*^9, 3.82355321268167*^9, 
+  3.8235534807537713`*^9, 3.8235535572094603`*^9, 3.823554666589014*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[127]:=",ExpressionUUID->"e96fd1f3-a4db-4117-\
+bf0a-069181c5285a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of product of Gell Mann matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], "\[InvisibleSpace]", "\<\" in bases \"\>",
+    "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["\[Zeta]", "1"], ",", 
+       SubscriptBox["\[Zeta]", "2"], ",", 
+       SubscriptBox["\[Zeta]", "3"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["10", "3"]}], "}"}], "0", "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"2", " ", 
+          SqrtBox["2"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["4", "3"]}], "}"}], "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"4", " ", 
+            SqrtBox[
+             FractionBox["2", "3"]]}], "3"]}], "}"}], 
+        RowBox[{"{", 
+         FractionBox["8", 
+          RowBox[{"3", " ", 
+           SqrtBox["3"]}]], "}"}], 
+        RowBox[{"{", "0", "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of product of Gell Mann matrix of quark pair ", {1, 4}, 
+   " in bases ", 
+   TraditionalForm[{$CellContext`zeta1, $CellContext`zeta2, \
+$CellContext`zeta3}], "\n", 
+   MatrixForm[{{{
+       Rational[-10, 3]}, 0, 0}, {{2 2^Rational[1, 2]}, {
+       Rational[-4, 3]}, 0}, {{
+      Rational[-4, 3] Rational[2, 3]^Rational[1, 2]}, {
+      Rational[8, 3] 3^Rational[-1, 2]}, {0}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8234702078741226`*^9, 3.8234702539192796`*^9, 
+  3.823483392183919*^9, 3.823483893998744*^9, 3.82355321268167*^9, 
+  3.8235534807537713`*^9, 3.8235535572094603`*^9, 3.823554666883346*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[127]:=",ExpressionUUID->"ec99c77c-a26e-41bc-\
+bec7-6f9e001c8a51"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of product of Gell Mann matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], "\[InvisibleSpace]", "\<\" in bases \"\>",
+    "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["\[Zeta]", "1"], ",", 
+       SubscriptBox["\[Zeta]", "2"], ",", 
+       SubscriptBox["\[Zeta]", "3"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["10", "3"]}], "}"}], "0", "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"2", " ", 
+          SqrtBox["2"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["4", "3"]}], "}"}], "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"4", " ", 
+            SqrtBox[
+             FractionBox["2", "3"]]}], "3"]}], "}"}], 
+        RowBox[{"{", 
+         FractionBox["8", 
+          RowBox[{"3", " ", 
+           SqrtBox["3"]}]], "}"}], 
+        RowBox[{"{", "0", "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of product of Gell Mann matrix of quark pair ", {2, 3}, 
+   " in bases ", 
+   TraditionalForm[{$CellContext`zeta1, $CellContext`zeta2, \
+$CellContext`zeta3}], "\n", 
+   MatrixForm[{{{
+       Rational[-10, 3]}, 0, 0}, {{2 2^Rational[1, 2]}, {
+       Rational[-4, 3]}, 0}, {{
+      Rational[-4, 3] Rational[2, 3]^Rational[1, 2]}, {
+      Rational[8, 3] 3^Rational[-1, 2]}, {0}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8234702078741226`*^9, 3.8234702539192796`*^9, 
+  3.823483392183919*^9, 3.823483893998744*^9, 3.82355321268167*^9, 
+  3.8235534807537713`*^9, 3.8235535572094603`*^9, 3.8235546670903835`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[127]:=",ExpressionUUID->"94a544d9-c572-431d-\
+b952-39e9dd0fcc0c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of product of Gell Mann matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4"}], "}"}], "\[InvisibleSpace]", "\<\" in bases \"\>",
+    "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["\[Zeta]", "1"], ",", 
+       SubscriptBox["\[Zeta]", "2"], ",", 
+       SubscriptBox["\[Zeta]", "3"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["10", "3"]}], "}"}], "0", "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "2"}], " ", 
+          SqrtBox["2"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["4", "3"]}], "}"}], "0"},
+       {
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"16", " ", 
+            SqrtBox[
+             FractionBox["2", "3"]]}], "3"]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["16", 
+           RowBox[{"3", " ", 
+            SqrtBox["3"]}]]}], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["16", "3"]}], "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of product of Gell Mann matrix of quark pair ", {2, 4}, 
+   " in bases ", 
+   TraditionalForm[{$CellContext`zeta1, $CellContext`zeta2, \
+$CellContext`zeta3}], "\n", 
+   MatrixForm[{{{
+       Rational[-10, 3]}, 0, 0}, {{(-2) 2^Rational[1, 2]}, {
+       Rational[-4, 3]}, 0}, {{
+      Rational[-16, 3] Rational[2, 3]^Rational[1, 2]}, {
+      Rational[-16, 3] 3^Rational[-1, 2]}, {
+       Rational[-16, 3]}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8234702078741226`*^9, 3.8234702539192796`*^9, 
+  3.823483392183919*^9, 3.823483893998744*^9, 3.82355321268167*^9, 
+  3.8235534807537713`*^9, 3.8235535572094603`*^9, 3.823554667406649*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[127]:=",ExpressionUUID->"ad855345-86ea-46de-\
+8e93-f550f9154cf8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expectations of product of Gell Mann matrix of quark pair \
+\"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], "\[InvisibleSpace]", "\<\" in bases \"\>",
+    "\[InvisibleSpace]", 
+   TagBox[
+    FormBox[
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["\[Zeta]", "1"], ",", 
+       SubscriptBox["\[Zeta]", "2"], ",", 
+       SubscriptBox["\[Zeta]", "3"]}], "}"}],
+     TraditionalForm],
+    TraditionalForm,
+    Editable->True], "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"{", 
+         FractionBox["4", "3"], "}"}], "0", "0"},
+       {
+        RowBox[{"{", "0", "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["8", "3"]}], "}"}], "0"},
+       {
+        RowBox[{"{", 
+         FractionBox[
+          RowBox[{"4", " ", 
+           SqrtBox[
+            FractionBox["2", "3"]]}], "3"], "}"}], 
+        RowBox[{"{", 
+         RowBox[{"-", 
+          FractionBox["8", 
+           RowBox[{"3", " ", 
+            SqrtBox["3"]}]]}], "}"}], 
+        RowBox[{"{", "0", "}"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "Expectations of product of Gell Mann matrix of quark pair ", {3, 4}, 
+   " in bases ", 
+   TraditionalForm[{$CellContext`zeta1, $CellContext`zeta2, \
+$CellContext`zeta3}], "\n", 
+   MatrixForm[{{{
+       Rational[4, 3]}, 0, 0}, {{0}, {
+       Rational[-8, 3]}, 0}, {{
+      Rational[4, 3] Rational[2, 3]^Rational[1, 2]}, {
+      Rational[-8, 3] 3^Rational[-1, 2]}, {0}}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8234702078741226`*^9, 3.8234702539192796`*^9, 
+  3.823483392183919*^9, 3.823483893998744*^9, 3.82355321268167*^9, 
+  3.8235534807537713`*^9, 3.8235535572094603`*^9, 3.8235546677070894`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[127]:=",ExpressionUUID->"63f0a34a-b2fb-4847-\
+9440-8582cbb280f4"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{574.8, 586.8},
+WindowMargins->{{Automatic, -4.7999999999999545`}, {Automatic, 0}},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
+Magnification:>0.8 Inherited,
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:67087\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fb1bbdcc-64e1-499f-8464-51d34ba35a5b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 294, 6, 22, "Input",ExpressionUUID->"494ff57c-7180-4539-b674-2b064abf0e80"],
+Cell[855, 28, 1083, 28, 70, "Input",ExpressionUUID->"bea5366c-8f81-45d4-a374-935e4d841974"],
+Cell[1941, 58, 4310, 115, 189, "Input",ExpressionUUID->"e162df89-96c2-40d3-95c2-2cfa3735e327"],
+Cell[6254, 175, 10003, 233, 569, "Input",ExpressionUUID->"a63d55cc-43a1-4df8-be50-161847b212da"],
+Cell[16260, 410, 3762, 102, 235, "Input",ExpressionUUID->"d6f17571-36c4-4fec-87d8-e1abce144bb3"],
+Cell[20025, 514, 2523, 62, 190, "Input",ExpressionUUID->"9a3fdd95-e3d0-4eed-8bef-4e4e078745ae"],
+Cell[CellGroupData[{
+Cell[22573, 580, 2259, 53, 189, "Input",ExpressionUUID->"7043b9fe-e132-4ecb-9f84-7517d7171b1e"],
+Cell[CellGroupData[{
+Cell[24857, 637, 2314, 66, 103, "Print",ExpressionUUID->"5b52bea1-e4db-444a-b199-edc7984b196e"],
+Cell[27174, 705, 2549, 74, 103, "Print",ExpressionUUID->"e96fd1f3-a4db-4117-bf0a-069181c5285a"],
+Cell[29726, 781, 2409, 69, 103, "Print",ExpressionUUID->"ec99c77c-a26e-41bc-bec7-6f9e001c8a51"],
+Cell[32138, 852, 2411, 69, 103, "Print",ExpressionUUID->"94a544d9-c572-431d-b952-39e9dd0fcc0c"],
+Cell[34552, 923, 2549, 74, 96, "Print",ExpressionUUID->"ad855345-86ea-46de-8e93-f550f9154cf8"],
+Cell[37104, 999, 2314, 66, 96, "Print",ExpressionUUID->"63f0a34a-b2fb-4847-9440-8582cbb280f4"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
